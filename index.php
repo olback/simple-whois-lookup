@@ -18,7 +18,7 @@ $ip = htmlspecialchars($_GET["ip"]);
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="fa/css/font-awesome.css" rel="stylesheet">
+    <link href="fa/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
