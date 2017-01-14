@@ -1,2 +1,2 @@
 # Simple-WHOIS-Lookup
-This Simple WHOIS Lookup project requires 'whois' and 'php' to be installed on your webhost system.
+This Simple WHOIS Lookup project requires the package whois to be installed.
