@@ -17,7 +17,7 @@ $ip = htmlspecialchars($_GET["ip"]);
     <title>Simple WHOIS Lookup</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="fa/css/font-awesome.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
