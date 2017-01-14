@@ -71,16 +71,6 @@ $ip = htmlspecialchars($_GET["ip"]);
 
     </div><!-- /.container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-
     <footer style="position: fixed; bottom: 8px; right: 20px;">
       <p>Made by <span class="fa fa-twitter" style="color: #55acee;"></span><a href="https://twitter.com/MrOlback">olback</a></p>
     </footer>
