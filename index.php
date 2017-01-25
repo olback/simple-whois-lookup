@@ -25,7 +25,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $col; ?>"> <!-- Top-bar color for IOS -->
 
     <!-- Icon -->
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="icon.jpg">
 
     <!-- Title -->
     <title>Simple WHOIS Lookup</title>
