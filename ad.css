@@ -1,0 +1,10 @@
+.customad {
+  position: fixed;
+  bottom: 8px;
+  right: 20px;
+  z-index: 9001;
+}
+
+.twitter-blue {
+  color: #55acee;
+}

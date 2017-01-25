@@ -1,78 +1,88 @@
 <?php
+// Set hex for mobile top-bar-color
+// Default nav-bar color: #292b2c
+$col = "#292b2c";
+
+// Set "ad", for an example: Made by olback.
+$ad = 'Made by <i class="fa fa-twitter twitter-blue"></i><a href="https://twitter.com/mrolback" target="_blank">olback</a>';
+
+// Don't touch unless you know what you are doing :)
 $n = "";
-$ip = htmlspecialchars($_GET["ip"]);
+$_SESSION['ip'] = htmlspecialchars($_GET["ip"]);
+$_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="img/icon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
 
+    <!-- Mobile top-bar-color -->
+    <meta name="theme-color" content="<?php echo $col; ?>"> <!-- Top-bar color for android -->
+    <meta name="msapplication-navbutton-color" content="<?php echo $col; ?>"> <!-- Top-bar color for windows-phone -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $col; ?>"> <!-- Top-bar color for IOS -->
+
+    <!-- Icon -->
+    <link rel="icon" href="icon.png">
+
+    <!-- Title -->
     <title>Simple WHOIS Lookup</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/starter-template.css" rel="stylesheet">
+    <!-- Bootstrap CSS + own CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="pre.css" rel="stylesheet">
+    <link href="ad.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap JS +jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
   </head>
 
-  <body>
+  <body style="padding-top: 2rem;">
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="./">Simple WHOIS</a>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Simple WHOIS</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="index.php">Home</a></li>-->
-            <!--<li><a href="https://olback.net">olback.net</a></li>-->
-          </ul>
-            <form class="navbar-form navbar-right" action="<?=$_SERVER['PHP_SELF'];?>">
-            <div class="form-group">
-              <input class="form-control" type="text" placeholder="Domain/IP" value="<?php echo $ip; ?>" name="ip" id="ip">
-            </div>
-            <button class="btn btn-success" type="submit">Lookup</button>
-          </form>
-
-        </div><!--/.nav-collapse -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <span class="nav-link">Your IP: <?php echo $_SESSION['cip'];?></span>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="<?=$_SERVER['PHP_SELF'];?>">
+          <input class="form-control mr-sm-2" type="text" placeholder="example.com" value="<?php echo $_SESSION['ip']; ?>" name="ip" id="ip">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
+        </form>
       </div>
     </nav>
 
-    <div class="container">
-
-      <div class="starter-template">
+    <div class="container" style="padding-top: 2rem;"> <!-- container -->
+      <center>
         <?php
-        if($n == $ip) {
+        if($n == $_SESSION['ip']) {
           echo "<h2>Please enter a hostname or ip.</h2>";
+          if (isset($ad)) {
+            echo '<div class="customad">'.$ad.'</div>';
+          }
         }
-        elseif(preg_match('/^[a-zA-Z0-9.]+$/', $ip)) {
-          $cmd = shell_exec('whois ' . $ip);
-          echo "<h2>Lookup results for $ip</h2><br>";
+        elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.]+$/', $_SESSION['ip'])) {
+          $cmd = shell_exec('whois ' . $_SESSION['ip']);
+          echo '<h2 style="margin-top: 10px;">Lookup results for '. $_SESSION['ip'] .'</h2><br>';
           echo "<pre>{$cmd}</pre>";
         }
         else {
-          echo '<pre style="color: red;">Please enter a valid hostname or ip.</pre>';
+          echo '<h2 style="color: red;">Please enter a valid hostname or ip.</h2>';
+          if (isset($ad)) {
+            echo '<div class="customad">'.$ad.'</div>';
+          }
         }
         ?>
-      </div>
-
-    </div><!-- /.container -->
-
-    <footer style="position: fixed; bottom: 8px; right: 20px;">
-      <p>Made by <span class="fa fa-twitter" style="color: #55acee;"></span><a href="https://twitter.com/MrOlback">olback</a></p>
-    </footer>
+      </center>
+    </div> <!-- /container -->
   </body>
 </html>
