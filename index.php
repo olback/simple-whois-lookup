@@ -25,20 +25,20 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $col; ?>"> <!-- Top-bar color for IOS -->
 
     <!-- Icon -->
-    <link rel="icon" href="icon.jpg">
+    <link rel="icon" href="res/icon.jpg">
 
     <!-- Title -->
     <title>Simple WHOIS Lookup</title>
 
     <!-- Bootstrap CSS + own CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="pre.css" rel="stylesheet">
-    <link href="ad.css" rel="stylesheet">
+    <link href="res/bootstrap.min.css" rel="stylesheet">
+    <link href="res/pre.css" rel="stylesheet">
+    <link href="res/ad.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap JS +jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="res/bootstrap.min.js"></script>
   </head>
 
   <body style="padding-top: 2rem;">
