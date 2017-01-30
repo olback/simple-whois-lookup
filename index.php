@@ -72,7 +72,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
         }
         elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
           $cmd = shell_exec('whois ' . $_SESSION['ip']);
-          echo '<h2 style="margin-top: 10px;">Lookup results for '. $_SESSION['ip'] .'</h2><br>';
+          echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'">'. $_SESSION['ip'] .'</a></h2><br>';
           echo "<pre>{$cmd}</pre>";
         }
         else {
