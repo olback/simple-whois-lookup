@@ -70,11 +70,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
         elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
           $cmd = shell_exec('whois ' . $_SESSION['ip']);
           echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
-<<<<<<< HEAD
           echo "<div class='jumbotron'><pre>{$cmd}</pre></div>";
-=======
-          echo "<pre>{$cmd}</pre>";
->>>>>>> origin/master
         }
         else {
           echo '<h2 style="color: red;">Please enter a valid hostname or ip.</h2>';
