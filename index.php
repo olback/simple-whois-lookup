@@ -1,14 +1,8 @@
 <?php
-// Set hex for mobile top-bar-color
-// Default nav-bar color: #292b2c
-$col = "#292b2c";
-
-// Set "ad", for an example: Made by olback.
-$ad = 'Made by <i class="fa fa-twitter twitter-blue"></i><a href="https://twitter.com/mrolback" target="_blank">olback</a>';
-
 // Don't touch unless you know what you are doing :)
+include __DIR__ . '/res/settings.php'; // File where ad-HTML, ad-CSS and top-bar color is saved.
 $n = "";
-$_SESSION['ip'] = htmlspecialchars($_GET["ip"]);
+$_SESSION['ip'] = htmlspecialchars($_GET["q"]);
 $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
 ?>
 
@@ -30,15 +24,18 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     <!-- Title -->
     <title>Simple WHOIS Lookup</title>
 
-    <!-- Bootstrap CSS + own CSS -->
+    <!-- Bootstrap CSS + Font-Awesome Icon Lib -->
     <link href="res/bootstrap.min.css" rel="stylesheet">
-    <link href="res/pre.css" rel="stylesheet">
-    <link href="res/ad.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap JS +jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="res/bootstrap.min.js"></script>
+
+    <!-- Styling from settings.php will be added here -->
+    <style>
+      <?php echo $adCss; ?>
+    </style>
   </head>
 
   <body style="padding-top: 2rem;">
@@ -54,8 +51,8 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
             <span class="nav-link">Your IP: <?php echo $_SESSION['cip'];?></span>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="<?=$_SERVER['PHP_SELF'];?>">
-          <input class="form-control mr-sm-2" type="text" placeholder="example.com" value="<?php echo $_SESSION['ip']; ?>" name="ip" id="ip">
+        <form class="form-inline my-2 my-lg-0" action="">
+          <input class="form-control mr-sm-2" type="text" placeholder="example.com" value="<?php echo $_SESSION['ip']; ?>" name="q" id="q">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
         </form>
       </div>
@@ -72,8 +69,8 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
         }
         elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
           $cmd = shell_exec('whois ' . $_SESSION['ip']);
-          echo '<h2 style="margin-top: 10px;">Lookup results for '. $_SESSION['ip'] .'</h2><br>';
-          echo "<pre>{$cmd}</pre>";
+          echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
+          echo "<div class='jumbotron'><pre>{$cmd}</pre></div>";
         }
         else {
           echo '<h2 style="color: red;">Please enter a valid hostname or ip.</h2>';
