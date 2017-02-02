@@ -5,4 +5,4 @@ Simple whois lookup by olback
 * Requires 'whois' to be installed on host
 * PHP 5.5 or greater
 
-All settings are located in res/settings.php
+All settings are located in ```res/settings.php```
