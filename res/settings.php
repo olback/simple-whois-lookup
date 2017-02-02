@@ -4,7 +4,7 @@
 $col = "#292b2c";
 
 // Set "ad"-html, for an example: Made by olback.
-$ad = 'Made by <i class="fa fa-github cCol"></i><a href="https://twitter.com/mrolback" target="_blank">olback</a>';
+$ad = 'Made by <i class="fa fa-github cCol"></i> <a href="https://twitter.com/mrolback" target="_blank">olback</a>';
 
 
 // This is the css for your "ad".
