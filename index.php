@@ -1,7 +1,6 @@
 <?php
 // Don't touch unless you know what you are doing :)
 include __DIR__ . '/res/settings.php'; // File where ad-HTML, ad-CSS and top-bar color is saved.
-$n = "";
 $_SESSION['ip'] = htmlspecialchars($_GET["q"]);
 $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
 ?>
@@ -61,7 +60,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     <div class="container" style="padding-top: 2rem;"> <!-- container -->
       <center>
         <?php
-        if($n == $_SESSION['ip']) {
+        if(!isset($_GET["q"])) {
           echo "<h2>Please enter a hostname or ip.</h2>";
           if (isset($ad)) {
             echo '<div class="customad">'.$ad.'</div>';
@@ -83,3 +82,4 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     </div> <!-- /container -->
   </body>
 </html>
+
