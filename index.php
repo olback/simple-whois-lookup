@@ -23,22 +23,33 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     <!-- Title -->
     <title>Simple WHOIS Lookup</title>
 
-    <!-- Bootstrap CSS + Font-Awesome Icon Lib -->
+    <!-- Bootstrap CSS + Font-Awesome Icon Lib + Tether.io -->
     <link href="res/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether-theme-arrows-dark.min.css" integrity="sha256-XFyid0+5GkcmTcsYkT0chfpGgPQ1TWhrFpR5oHyzc34=" crossorigin="anonymous" />
 
-    <!-- Bootstrap JS +jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- jQuery CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script> <!-- clipboard.js CDN -->
+    <!-- Bootstrap JS +jQuery + Tether.io-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=" crossorigin="anonymous"></script>
     <script src="res/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script> <!-- clipboard.js CDN -->
+
 
     <!-- Styling from settings.php will be added here -->
     <style>
       <?php echo $adCss; ?>
     </style>
+
+    <script>
+      $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
   </head>
 
   <body style="padding-top: 2rem;">
+    <script>new Clipboard('.cbip');</script>
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,7 +59,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <span class="nav-link">Your IP: <?php echo $_SESSION['cip'];?></span>
+            <span class="nav-link cbip" data-clipboard-text="<?php echo $_SESSION['cip'];?>" title="Click to copy IP" data-toggle="tooltip" data-placement="bottom">Your IP: <?php echo $_SESSION['cip'];?></span>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="">
@@ -83,4 +94,3 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
     </div> <!-- /container -->
   </body>
 </html>
-
