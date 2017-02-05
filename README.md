@@ -1,6 +1,7 @@
 # Simple WHOIS Lookup
 Simple whois lookup by olback
 
+Requirements
 * OS: Ubuntu/Debian
 * Requires 'whois' to be installed on host
 * PHP 5.5 or greater
