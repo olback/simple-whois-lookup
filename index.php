@@ -73,7 +73,15 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
       <center>
         <?php
         if(!isset($_GET["q"])) {
-          echo "<h2>Please enter a hostname or ip.</h2>";
+          echo '<br>
+                <form>
+                  <div class="form-group">
+                    <label for="q" style="font-weight: bold;">IP/Hostname:</label>
+                    <input class="form-control mr-sm-2" type="text" placeholder="example.com" name="q" id="q" style="font-size: 150%; text-align: center;"><br>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
+                  </div>
+                </form>';
+
           if (isset($ad)) {
             echo '<div class="customad">'.$ad.'</div>';
           }
@@ -84,7 +92,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
           echo "<div class='jumbotron'><pre>{$cmd}</pre></div>";
         }
         else {
-          echo '<h2 style="color: red;">Please enter a valid hostname or ip.</h2>';
+          echo '<div class="jumbotron" style="margin-top: 15px;"><h2 style="color: red;">Please enter a valid hostname or ip</h2><p>Querys may only contain letters, numbers, dots and dashes.</p></div>';
           if (isset($ad)) {
             echo '<div class="customad">'.$ad.'</div>';
           }
