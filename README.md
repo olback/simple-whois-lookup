@@ -6,7 +6,7 @@ Simple whois lookup by olback
 * PHP 5.5 or greater
 
 All settings are located in ```res/settings.php```
-
+index.php?q=example.com returns whois lookup for example.com.
 
 # Want raw data, without any css?
 * ```raw.php?myip``` returns your ip.
