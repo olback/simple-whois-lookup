@@ -73,29 +73,42 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
       <center>
         <?php
         if(!isset($_GET["q"])) {
-          echo '<br>
-                <form>
-                  <div class="form-group">
-                    <label for="q" style="font-weight: bold;">IP/Hostname:</label>
-                    <input class="form-control mr-sm-2" type="text" placeholder="example.com" name="q" id="q" style="font-size: 150%; text-align: center;"><br>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
-                  </div>
-                </form>';
 
-          if (isset($ad)) {
-            echo '<div class="customad">'.$ad.'</div>';
-          }
-        }
-        elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
-          $cmd = shell_exec('whois ' . $_SESSION['ip']);
-          echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
-          echo "<div class='jumbotron'><pre>{$cmd}</pre></div>";
-        }
-        else {
-          echo '<div class="jumbotron" style="margin-top: 15px;"><h2 style="color: red;">Please enter a valid hostname or ip</h2><p>Querys may only contain letters, numbers, dots and dashes.</p></div>';
-          if (isset($ad)) {
-            echo '<div class="customad">'.$ad.'</div>';
-          }
+                  echo '<br>
+                        <form>
+                          <div class="form-group">
+                            <label for="q" style="font-weight: bold;">IP/Hostname:</label>
+                            <input class="form-control mr-sm-2" type="text" placeholder="example.com" name="q" id="q" style="font-size: 150%; text-align: center;"><br>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
+                          </div>
+                        </form>';
+
+                  if (isset($ad)) {
+                    echo '<div class="customad">'.$ad.'</div>';
+                  }
+
+                } elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
+
+                    $_SESSION['$whois'] = shell_exec('whois ' . $_SESSION['ip']);
+                    $_SESSION['webserver'] = shell_exec('curl -LI -m 5 ' . $_SESSION['ip'] . ' | grep Server: | head -1'); // "-m 5" Sets the timeout for web server software request. Default value = 5. Time in seconds.
+                    $_SESSION['webserver_r'] = "{$_SESSION['webserver']}";
+
+                    echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
+
+                      if ($_SESSION['webserver'] !== "") {
+                        echo "<div class='jumbotron' style='padding: 15px;'>". $_SESSION['webserver'] ."</div>";
+                      }
+
+                    echo "<div class='jumbotron'><pre>{$_SESSION['$whois']}</pre></div>";
+
+                } else {
+
+                  echo '<div class="jumbotron" style="margin-top: 15px;"><h2 style="color: red;">Please enter a valid hostname or ip</h2><p>Querys may only contain letters, numbers, dots and dashes.</p></div>';
+
+                  if (isset($ad)) {
+                    echo '<div class="customad">'.$ad.'</div>';
+                  }
+
         }
         ?>
       </center>
