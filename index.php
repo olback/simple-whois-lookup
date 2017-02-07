@@ -90,7 +90,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
                 } elseif(preg_match('/^[a-zA-Z0-9å-öÅ-Ö.-]+$/', $_SESSION['ip'])) {
 
                     $_SESSION['$whois'] = shell_exec('whois ' . $_SESSION['ip']);
-                    $_SESSION['webserver'] = shell_exec('curl -LI -m 5 ' . $_SESSION['ip'] . ' | grep Server: | head -1'); // "-m 5" Sets the timeout for web server software request. Default value = 5. Time in seconds.
+                    $_SESSION['webserver'] = shell_exec('curl -LI -m '.$time.' ' . $_SESSION['ip'] . ' | grep Server: | head -1');
                     $_SESSION['webserver_r'] = "{$_SESSION['webserver']}";
 
                     echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
