@@ -3,6 +3,10 @@
 // Default nav-bar color: #292b2c
 $col = "#292b2c";
 
+// Timeout in seconds for getting server software info.
+// Recomended: 5
+$time = "5";
+
 // Set "ad"-html, for an example: Made by olback.
 $ad = 'Made by <i class="fa fa-github cCol"></i> <a href="https://twitter.com/mrolback" target="_blank">olback</a>';
 
