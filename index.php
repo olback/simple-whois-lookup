@@ -95,7 +95,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
 
                     echo '<h2 style="margin-top: 10px;">Lookup results for <a href="https://'. $_SESSION['ip'] .'" target="_blank">'. $_SESSION['ip'] .'</a></h2><br>';
 
-                      if ($_SESSION['webserver'] !== "") {
+                      if ($_SESSION['webserver'] !== null) {
                         echo "<div class='jumbotron' style='padding: 15px;'>". $_SESSION['webserver'] ."</div>";
                       }
 
