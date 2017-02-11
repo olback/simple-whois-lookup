@@ -10,7 +10,7 @@ Requirements:
 ### Send whois lookup results with a link
 ```index.php?q=example.com``` returns whois lookup for example.com.
 
-## Want raw data, without any css?
+## Want raw output, without any css?
 * ```raw.php?myip``` returns your ip.
 * ```raw.php?q=example.com``` returns whois lookup for example.com
 
