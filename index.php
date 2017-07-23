@@ -62,7 +62,7 @@ $_SESSION['cip'] = $_SERVER['REMOTE_ADDR'];
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="">
-          <input class="form-control mr-sm-2" type="text" placeholder="example.com" value="<?php echo $_SESSION['ip']; ?>" name="q" id="q">
+          <input class="form-control mr-sm-2" type="text" placeholder="<?php if(isset($_SESSION['ip'])){echo $_SESSION['ip'];}else{echo "example.com";} ?>" name="q" id="q">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="document.getElementById('loading').style.display = 'block';">Lookup</button>
         </form>
       </div>
