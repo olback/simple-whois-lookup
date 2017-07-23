@@ -10,9 +10,9 @@ $time = "5";
 // Set "ad"-html, for an example: Made by olback.
 $ad = 'Made by <i class="fa fa-github cCol"></i> <a href="https://twitter.com/mrolback" target="_blank">olback</a>';
 
-
 // This is the css for your "ad".
 $adCss = "
+<style>
 .customad {
   position: fixed;
   bottom: 8px;
@@ -24,5 +24,6 @@ $adCss = "
   /* color: #55acee; */ /* Twitter blue */
   color: #000;
 }
+</style>
 ";
 ?>
