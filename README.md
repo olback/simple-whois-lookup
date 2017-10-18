@@ -2,7 +2,7 @@
 Simple whois lookup by olback
 
 Requirements:
-* OS: Ubuntu/Debian
+* OS: Any Linux Distro should do.
 * Requires 'whois' to be installed on host
 * PHP 5.5 or greater
 * A HTTP Server (Preferably nginx)
@@ -11,8 +11,8 @@ Requirements:
 ```index.php?q=example.com``` returns whois lookup for example.com.
 
 ## Want raw output, without any css?
-* ```raw.php?myip``` returns your ip.
-* ```raw.php?q=example.com``` returns whois lookup for example.com
+* `raw.php?myip` returns your ip.
+* `raw.php?q=example.com` returns whois lookup for example.com
 
 
-All settings are located in ```res/settings.php```
+All settings are located in `res/settings.php`

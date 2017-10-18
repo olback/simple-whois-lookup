@@ -78,6 +78,7 @@ if(isset($_GET['q'])){
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=" crossorigin="anonymous"></script>
         <script src="res/bootstrap.min.js"></script>
+        <script src="res/night-mode.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script> <!-- clipboard.js CDN -->
         <script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});</script>
         
